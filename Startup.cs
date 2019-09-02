@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using SGCFT.Models;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace SGCFT
 {
@@ -30,6 +31,15 @@ namespace SGCFT
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ApiDbContext>(options => options.UseNpgsql(connectionString));
+            // Configurando o serviço de documentação do Swagger
+                services.AddSwaggerGen(c => {c.SwaggerDoc("v1",
+                            new Info
+                            {
+                            Title = "SGCFT",
+                            Version = "v1",
+                            Description = "Documentação da API REST criada com o ASP.NET Core"
+                            });
+                });
 
         }
 
@@ -45,8 +55,17 @@ namespace SGCFT
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            // Ativando middlewares para uso do Swagger
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "SGCFT");
+            c.RoutePrefix = string.Empty;
+            c.DocumentTitle = "TRACTUS";
+            });
 
-            app.UseHttpsRedirection();
+
+            //app.UseHttpsRedirection();
             app.UseMvc();
         }
     }

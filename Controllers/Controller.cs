@@ -5,13 +5,13 @@ namespace SGCFT.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
-  public class UsuariosController : ControllerBase
+  public class UsuarioController : ControllerBase
   {
     private readonly ApiDbContext _context;
 
-    public UsuariosController(ApiDbContext context)
+    public UsuarioController(ApiDbContext context)
     {
-        _context.Usuarios = context;
+        _context = context;
     }
 
     // GET api/tarefas
