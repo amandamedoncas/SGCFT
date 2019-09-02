@@ -1,11 +1,11 @@
 version: "3.4"
 
 networks:
-  nome-da-sua-aplicacao-dev:
+  SGCFT-dev:
     driver: bridge
 
 services:
-  nome-da-sua-aplicacao:
+  SGCFT:
     image: SGCFT:latest
     depends_on:
       - "postgres_image"
