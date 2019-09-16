@@ -5,11 +5,11 @@ namespace SGCFT.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
-  public class UsuarioController : ControllerBase
+  public class TreinamentoController : ControllerBase
   {
     private readonly ApiDbContext _context;
 
-    public UsuarioController(ApiDbContext context)
+    public TreinamentoController(ApiDbContext context)
     {
         _context = context;
     }
@@ -18,7 +18,7 @@ namespace SGCFT.Controllers
     [HttpGet]
     public ActionResult Get()
     {
-        return Ok(_context.Usuarios);
+        return Ok(_context.Treinamentos);
     }
   }
 }
