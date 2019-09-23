@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using SGCFT.Models;
 
@@ -14,11 +16,104 @@ namespace SGCFT.Controllers
         _context = context;
     }
 
-    // GET api/tarefas
-    [HttpGet]
-    public ActionResult Get()
+	 // GET: Alternativas/
+	 [HttpGet]
+	public IActionResult Index()
+		{
+			List<Alternativa> alternativas = _context.Alternativas.ToList();
+			return Ok(alternativas);
+		}
+
+      // GET: Alternativas/1
+        [HttpGet("{id}")]
+      
+		public ActionResult IndexId(int id)
+		{
+			 try
+            {
+                Alternativa alternativa= _context.Alternativas.Where(x => x.Id == id).Single();
+                return Ok(alternativa);
+            }
+            catch (System.Exception)
+            {
+                return BadRequest();
+                throw;
+            }
+			
+		}
+
+
+    //POST: Alternativas/
+    [HttpPost]
+    public IActionResult inserirAlternativa([FromBody]Alternativa alternativa)
     {
-        return Ok(_context.Alternativas);
+
+      try
+      {
+        _context.Alternativas.Add(alternativa);
+        _context.SaveChanges();
+        return Ok();
+      }
+      catch(System.Exception)
+      {
+          return BadRequest();
+          throw;
+      }
     }
+
+    //PUT: Alternativas/
+    [HttpPut]
+    public IActionResult alterarAlternativa([FromBody]Alternativa alternativa)
+    {
+      Alternativa alt = new Alternativa();
+      
+      alt = _context.Alternativas.Find(alternativa.Id);
+      try
+      {
+        if(alternativa != alt)
+        {
+            _context.Alternativas.Update(alternativa);
+            _context.SaveChanges();
+            return Ok();
+        }
+        else
+          return BadRequest("Alternativa não alterada");
+      }
+      catch(System.Exception)
+      {
+          return BadRequest();
+          throw;
+      }
+    }
+    
+    
+    // DELETE: Alternativas/
+        [HttpDelete ("{id}")]
+        public IActionResult deletarAlternativa(int id)
+        {
+            try
+            {
+                Alternativa alternativa;
+                alternativa = _context.Alternativas.Find(id);
+                _context.Alternativas.Remove(alternativa);
+
+                try
+                {
+                    _context.SaveChanges();
+                    return Ok();
+                }
+                catch (System.Exception)
+                {
+
+                    throw;
+                }
+            }
+            catch (System.Exception)
+            {
+                return BadRequest();
+                throw;
+            }
+
+        }
   }
 }
