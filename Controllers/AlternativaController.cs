@@ -65,24 +65,18 @@ namespace SGCFT.Controllers
     [HttpPut]
     public IActionResult alterarAlternativa([FromBody]Alternativa alternativa)
     {
-      Alternativa alt = new Alternativa();
       
-      alt = _context.Alternativas.Find(alternativa.Id);
       try
       {
-        if(alternativa != alt)
-        {
-            _context.Alternativas.Update(alternativa);
-            _context.SaveChanges();
-            return Ok();
-        }
-        else
-          return BadRequest("Alternativa não alterada");
+        
+        _context.Alternativas.Update(alternativa);
+        _context.SaveChanges();
+        return Ok();
       }
-      catch(System.Exception)
+      catch(System.Exception e)
       {
           return BadRequest();
-          throw;
+          throw e;
       }
     }
     

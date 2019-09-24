@@ -65,19 +65,14 @@ namespace SGCFT.Controllers
     [HttpPut]
     public IActionResult alterarResposta([FromBody]Resposta resposta)
     {
-      Resposta res = new Resposta();
-      
-      res = _context.Respostas.Find(resposta.Id);
+
       try
       {
-        if(resposta != res)
-        {
+        
             _context.Respostas.Update(resposta);
             _context.SaveChanges();
             return Ok();
-        }
-        else
-          return BadRequest("Resposta não alterada");
+
       }
       catch(System.Exception)
       {

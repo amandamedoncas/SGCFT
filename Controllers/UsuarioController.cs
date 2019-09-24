@@ -63,18 +63,14 @@ namespace SGCFT.Controllers
     [HttpPut]
     public IActionResult alterarUsuario([FromBody]Usuario usuario)
     {
-      Usuario user = new Usuario(); 
-      user = _context.Usuarios.Find(usuario.Id);
+
       try
       {
-        if(usuario != user)
-        {
+
             _context.Usuarios.Update(usuario);
             _context.SaveChanges();
             return Ok();
-        }
-        else
-          return BadRequest("Usuario não alterado");
+
       }
       catch(System.Exception)
       {

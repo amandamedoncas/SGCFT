@@ -65,19 +65,14 @@ namespace SGCFT.Controllers
     [HttpPut]
     public IActionResult alterarPergunta([FromBody]Pergunta pergunta)
     {
-      Pergunta per = new Pergunta();
       
-      per = _context.Perguntas.Find(pergunta.Id);
       try
       {
-        if(pergunta != per)
-        {
+        
             _context.Perguntas.Update(pergunta);
             _context.SaveChanges();
             return Ok();
-        }
-        else
-          return BadRequest("Pergunta não alterada");
+       
       }
       catch(System.Exception)
       {

@@ -63,19 +63,13 @@ namespace SGCFT.Controllers
     [HttpPut]
     public IActionResult alterarModulo([FromBody]Modulo modulo)
     {
-      Modulo md = new Modulo();     
-      md = _context.Modulos.Find(modulo.Id);
 
       try
       {
-        if(modulo != md)
-        {
             _context.Modulos.Update(modulo);
             _context.SaveChanges();
             return Ok();
-        }
-        else
-          return BadRequest("Modulo não alterado");
+        
       }
       catch(System.Exception)
       {

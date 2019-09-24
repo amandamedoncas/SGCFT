@@ -63,19 +63,14 @@ namespace SGCFT.Controllers
     [HttpPut]
     public IActionResult alterarVideo([FromBody]Video video)
     {
-      Video vd = new Video();
-      
-      vd = _context.Videos.Find(video.Id);
+
       try
       {
-        if(video != vd)
-        {
+
             _context.Videos.Update(video);
             _context.SaveChanges();
             return Ok();
-        }
-        else
-          return BadRequest("Video não alterado");
+
       }
       catch(System.Exception)
       {

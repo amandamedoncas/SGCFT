@@ -62,19 +62,14 @@ namespace SGCFT.Controllers
     [HttpPut]
     public IActionResult alterarTreinamento([FromBody]Treinamento treinamento)
     {
-      Treinamento tr = new Treinamento();
-      
-      tr = _context.Treinamentos.Find(treinamento.Id);
+
       try
       {
-        if(treinamento != tr)
-        {
+
             _context.Treinamentos.Update(treinamento);
             _context.SaveChanges();
             return Ok();
-        }
-        else
-          return BadRequest("Treinamento não alterado");
+
       }
       catch(System.Exception)
       {
