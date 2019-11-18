@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 
-export class Tarefas extends Component {
+export class Alternativas extends Component {
     constructor(props) {
         super(props);
       
@@ -16,7 +16,7 @@ export class Tarefas extends Component {
       }
       
       handleSubmit(e) {
-        alert('Uma tarefa foi enviada: ' + JSON.stringify(this.state));
+        alert('Uma alternativa foi enviada: ' + JSON.stringify(this.state));
         this.setState({
           descricao: '',
           prioridade: 0
@@ -38,25 +38,25 @@ export class Tarefas extends Component {
       
 
       // GET (todas)
-buscarTarefas() {
-    fetch('/api/tarefas')
+buscarAlternativas() {
+    fetch('/api/alternativas')
       .then(response => response.json())
-      .then(data => this.setState({ tarefas: data }));
+      .then(data => this.setState({ alternativas: data }));
   }
   
   // GET (por ID)
-  buscarTarefa(id) {
-    fetch('/api/tarefas/' + id)
+  buscarAlternativa(id) {
+    fetch('/api/alternativas/' + id)
       .then(response => response.json())
-      .then(data => this.setState({ tarefas: data }));
+      .then(data => this.setState({ alternativas: data }));
   }
   
   // POST
-  inserirTarefa(tarefa) {
-    fetch('/api/tarefas', {
+  inserirAlternativa(alternativa) {
+    fetch('/api/alternativas', {
       method: 'post',
       headers: {'Content-Type':'application/json'},
-      body: JSON.stringify(tarefa)
+      body: JSON.stringify(alternativa)
     }).then((resposta) => {
       if (resposta.ok) {
         /* Tratamento depois de completar o POST com status 200 OK */;
@@ -67,11 +67,11 @@ buscarTarefas() {
   }
   
   // PUT
-  atualizarTarefa(tarefa) {
-    fetch('/api/tarefas/' + tarefa.id, {
+  atualizarAlternativa(alternativa) {
+    fetch('/api/alternativas/' + alternativa.id, {
       method: 'put',
       headers: {'Content-Type':'application/json'},
-      body: JSON.stringify(tarefa)
+      body: JSON.stringify(alternativa)
     }).then((resposta) => {
       if (resposta.ok) {
         /* Tratamento depois de completar o PUT com status 200 OK */;
@@ -82,8 +82,8 @@ buscarTarefas() {
   }
   
   // DELETE
-  excluirTarefa(id) {
-    fetch('/api/tarefas/' + id, {
+  excluirAlternativa(id) {
+    fetch('/api/alternativas/' + id, {
       method: 'delete'
     }).then((resposta) => {
       if (resposta.ok) {
@@ -101,7 +101,7 @@ buscarTarefas() {
         <Form onSubmit={this.handleSubmit}>
         <Form.Group>
             <Form.Label>Descrição</Form.Label>
-            <Form.Control type='text' placeholder='Descrição da tarefa' value={this.state.descricao} onChange={this.handleDescricaoChange} />
+            <Form.Control type='text' placeholder='Descrição da alternativa' value={this.state.descricao} onChange={this.handleDescricaoChange} />
         </Form.Group>
         <Form.Group>
             <Form.Label>Prioridade</Form.Label>

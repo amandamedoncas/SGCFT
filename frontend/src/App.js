@@ -3,19 +3,28 @@ import { Container, Navbar, Nav, NavDropdown} from 'react-bootstrap';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import { Home } from './components/Home';
 import { Tarefas } from './components/Tarefas';
+import {Alternativas} from './components/Alternativas';
+
 
 function App() {
   return (
     <Container className="">
       <BrowserRouter>
         <Navbar bg='light' expand='lg'>
-          <Navbar.Brand as={Link} to="/">Nome da Minha Aplicação</Navbar.Brand>
-          <Navbar.Toggle aria-controls='basic-navbar-nav' />
+          <Navbar.Brand as={Link} to="/">SGCFT</Navbar.Brand>
+         
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='mr-auto'>
               <Nav.Link as={Link} to="/">Home</Nav.Link>
               <NavDropdown title='Cadastros' id='basic-nav-dropdown'>
                 <NavDropdown.Item as={Link} to='/tarefas'>Tarefas</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to='/usuarios'>Usuarios</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to='/videos'>Videos</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to='/treinamentos'>Treinamento</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to='/modulos'>Modulos</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to='/perguntas'>Perguntas</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to='/alternativas'>Alternativas</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to='/respostas'>Respostas</NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
