@@ -3,8 +3,8 @@ import { Container, Navbar, Nav, NavDropdown} from 'react-bootstrap';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import { Home } from './components/Home';
 import { Tarefas } from './components/Tarefas';
-import {Alternativas} from './components/Alternativas';
-
+import { Alternativas } from './components/Alternativas';
+import { Usuarios } from './components/Usuarios';
 
 function App() {
   return (
@@ -32,6 +32,8 @@ function App() {
         <Switch>
           <Route path="/" exact={true} component={Home} />
           <Route path="/tarefas" component={Tarefas} />
+          <Route path="/alternativas" component={Alternativas} />
+          <Route path="/usuarios" component={Usuarios} />
         </Switch>
       </BrowserRouter>
 
