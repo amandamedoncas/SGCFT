@@ -7,13 +7,13 @@ export class Modulos extends Component {
       
         this.state = {
          id:0,
-         treinamento: '',
+         idTreinamento: '',
          titulo:'',
         
         };
       
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleTreinamentoChange = this.handleTreinamentoChange.bind(this);
+        this.handleIdTreinamentoChange = this.handleIdTreinamentoChange.bind(this);
         this.handleTituloChange = this.handleTituloChange.bind(this);
         
       }
@@ -22,15 +22,15 @@ export class Modulos extends Component {
         alert('Um modulo foi enviado: ' + JSON.stringify(this.state));
         this.setState({
             id:0,
-            treinamento: '',
+            idTreinamento: '',
             titulo:'',
         });
         e.preventDefault();
       }
       
-      handleTreinamentoChange(e) {
+      handleIdTreinamentoChange(e) {
         this.setState({
-          treinamento: e.target.value
+          idTreinamento: e.target.value
         });
       }
       
@@ -106,7 +106,7 @@ export class Modulos extends Component {
         <Form onSubmit={this.handleSubmit}>
         <Form.Group>
             <Form.Label>Treinamento</Form.Label>
-            <Form.Control type='text' placeholder='Treinamento do modulo' value={this.state.treinamento} onChange={this.handleTreinamentoChange} />
+            <Form.Control type='text' placeholder='Treinamento do modulo' value={this.state.idTreinamento} onChange={this.handleIdTreinamentoChange} />
         </Form.Group>
         <Form.Group>
             <Form.Label>Titulo</Form.Label>

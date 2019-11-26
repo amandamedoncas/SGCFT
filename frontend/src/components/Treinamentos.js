@@ -8,14 +8,14 @@ export class Treinamentos extends Component {
         this.state = {
          id:0,
          tema: '',
-         autor: '',
+         idAutor: '',
          tipo:0,
          senha:''
         };
       
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleTemaChange = this.handleTemaChange.bind(this);
-        this.handleAutorChange = this.handleAutorChange.bind(this);
+        this.handleIdAutorChange = this.handleIdAutorChange.bind(this);
         this.handleTipoChange = this.handleTipoChange.bind(this);
         this.handleSenhaChange = this.handleSenhaChange.bind(this);
       }
@@ -25,7 +25,7 @@ export class Treinamentos extends Component {
         this.setState({
             id:0,
             tema: '',
-            autor: '',
+            idAutor: '',
             tipo:0,
             senha:''
         });
@@ -38,9 +38,9 @@ export class Treinamentos extends Component {
         });
       }
       
-      handleAutorChange(e) {
+      handleIdAutorChange(e) {
         this.setState({
-          autor: e.target.value
+          idAutor: e.target.value
         });
       }
       
@@ -125,7 +125,7 @@ export class Treinamentos extends Component {
         </Form.Group>
         <Form.Group>
             <Form.Label>Autor</Form.Label>
-            <Form.Control type='text' placeholder='Autor<' value={this.state.autor} onChange={this.handleAutorChange} />
+            <Form.Control type='text' placeholder='Autor<' value={this.state.autor} onChange={this.handleIdAutorChange} />
         </Form.Group>
         <Form.Group>
             <Form.Label>Tipo</Form.Label>

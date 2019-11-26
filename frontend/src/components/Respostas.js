@@ -14,9 +14,9 @@ export class Respostas extends Component {
         };
       
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleIdUsuarioChange = this.handleIdModuloChange.bind(this);
-        this.handleIdPerguntaChange = this.handleIdModuloChange.bind(this);
-        this.handleSolucaohange = this.handleTituloChange.bind(this);
+        this.handleIdUsuarioChange = this.handleIdUsuarioChange.bind(this);
+        this.handleIdPerguntaChange = this.handleIdPerguntaChange.bind(this);
+        this.handleSolucaohange = this.handleSolucaoChange.bind(this);
         
       }
       

@@ -40,9 +40,9 @@ function App() {
           <Route path="/usuarios" component={Usuarios} />
           <Route path="/treinamentos" component={Treinamentos} />
           <Route path="/modulos" component={Modulos} />
-          <Route path="/modulos" component={Videos} />
-          <Route path="/modulos" component={Perguntas} />
-          <Route path="/modulos" component={Respostas} />
+          <Route path="/videos" component={Videos} />
+          <Route path="/perguntas" component={Perguntas} />
+          <Route path="/respostas" component={Respostas} />
         </Switch>
       </BrowserRouter>
 

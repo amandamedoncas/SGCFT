@@ -6,39 +6,50 @@ export class Alternativas extends Component {
         super(props);
       
         this.state = {
-          descricao: '',
-          prioridade: 0
+          id: 0,
+          idPergunta:0,
+          texto: '',
+          certoErrado: 0
         };
       
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleDescricaoChange = this.handleDescricaoChange.bind(this);
-        this.handlePrioridadeChange = this.handlePrioridadeChange.bind(this);
+        this.handleIdPerguntaChange = this.handleIdPerguntaChange.bind(this);
+        this.handleTextoChange = this.handleTextoChange.bind(this);
+        this.handleCertoErradoChange = this.handleCertoErradoChange.bind(this);
       }
       
       handleSubmit(e) {
         alert('Uma alternativa foi enviada: ' + JSON.stringify(this.state));
         this.setState({
-          descricao: '',
-          prioridade: 0
+          id: 0,
+          idPergunta:0,
+          texto: '',
+          certoErrado: 0
         });
         e.preventDefault();
       }
       
-      handleDescricaoChange(e) {
+      handleIdPerguntaChange(e) {
         this.setState({
-          descricao: e.target.value
+          idPergunta: e.target.value
         });
       }
       
-      handlePrioridadeChange(e) {
+      handleTextoChange(e) {
         this.setState({
-          prioridade: e.target.value
+          texto: e.target.value
+        });
+      }
+
+      handleCertoErradoChange(e) {
+        this.setState({
+          certoErrado: e.target.value
         });
       }
       
 
       // GET (todas)
-buscarAlternativas() {
+  buscarAlternativas() {
     fetch('/api/alternativas')
       .then(response => response.json())
       .then(data => this.setState({ alternativas: data }));
@@ -100,12 +111,16 @@ buscarAlternativas() {
     return (
         <Form onSubmit={this.handleSubmit}>
         <Form.Group>
-            <Form.Label>Descrição</Form.Label>
-            <Form.Control type='text' placeholder='Descrição da alternativa' value={this.state.descricao} onChange={this.handleDescricaoChange} />
+            <Form.Label>Pergunta</Form.Label>
+            <Form.Control type='text' placeholder='Pergunta' value={this.state.idPergunta} onChange={this.handleIdPerguntaChange} />
         </Form.Group>
         <Form.Group>
-            <Form.Label>Prioridade</Form.Label>
-            <Form.Control type='number' placeholder='Prioridade' value={this.state.prioridade} onChange={this.handlePrioridadeChange} />
+            <Form.Label>Texto</Form.Label>
+            <Form.Control type='text' placeholder='Texto' value={this.state.texto} onChange={this.handleTextoChange} />
+        </Form.Group>
+        <Form.Group>
+            <Form.Label>Certa</Form.Label>
+            <Form.Control type='text' placeholder='Alternativa é certa?' value={this.state.certoErrado} onChange={this.handleCertoErradoChange} />
         </Form.Group>
         <Button variant='primary' type='submit'>
             Inserir

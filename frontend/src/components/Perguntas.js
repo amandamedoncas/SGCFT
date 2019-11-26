@@ -7,8 +7,8 @@ export class Perguntas extends Component {
       
         this.state = {
          id:0,
-         idModulo: '',
-         titulo:'',
+         idModulo: 0,
+         texto:'',
         
         };
       
@@ -21,14 +21,21 @@ export class Perguntas extends Component {
         alert('Um pergunta foi enviado: ' + JSON.stringify(this.state));
         this.setState({
             id:0,
+            idModulo: 0,
             texto:'',
         });
         e.preventDefault();
       }
-            
-      handleTextoChange(e) {
+
+      handleTituloChange(e) {
         this.setState({
-          texto: e.target.value
+          titulo: e.target.value
+        });
+      }
+            
+      handleIdModuloChange(e) {
+        this.setState({
+          titulo: e.target.value
         });
       }
       
@@ -99,6 +106,10 @@ export class Perguntas extends Component {
         <Form.Group>
             <Form.Label>Texto</Form.Label>
             <Form.Control type='text' placeholder='Texto<' value={this.state.texto} onChange={this.handleTextoChange} />
+        </Form.Group>
+        <Form.Group>
+            <Form.Label>Modulo</Form.Label>
+            <Form.Control type='text' placeholder='Texto<' value={this.state.idModulo} onChange={this.handleIdModuloChange} />
         </Form.Group>
         <Button variant='primary' type='submit'>
             Inserir
