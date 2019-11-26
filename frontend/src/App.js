@@ -5,7 +5,11 @@ import { Home } from './components/Home';
 import { Tarefas } from './components/Tarefas';
 import { Alternativas } from './components/Alternativas';
 import { Usuarios } from './components/Usuarios';
-
+import { Treinamentos } from './components/Treinamentos';
+import { Modulos } from './components/Modulos';
+import { Videos } from './components/Videos';
+import { Perguntas } from './components/Perguntas';
+import { Respostas } from './components/Respostas';
 function App() {
   return (
     <Container className="">
@@ -34,6 +38,11 @@ function App() {
           <Route path="/tarefas" component={Tarefas} />
           <Route path="/alternativas" component={Alternativas} />
           <Route path="/usuarios" component={Usuarios} />
+          <Route path="/treinamentos" component={Treinamentos} />
+          <Route path="/modulos" component={Modulos} />
+          <Route path="/modulos" component={Videos} />
+          <Route path="/modulos" component={Perguntas} />
+          <Route path="/modulos" component={Respostas} />
         </Switch>
       </BrowserRouter>
 
