@@ -15,8 +15,7 @@ function App() {
     <Container className="">
       <BrowserRouter>
         <Navbar bg='light' expand='lg'>
-          <Navbar.Brand as={Link} to="/">SGCFT</Navbar.Brand>
-         
+        
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='mr-auto'>
               <Nav.Link as={Link} to="/">Home</Nav.Link>
