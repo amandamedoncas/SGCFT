@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Navbar, Nav, NavDropdown} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import { Home } from './components/Home';
 import { Alternativa } from './components/Alternativa';
@@ -17,7 +18,7 @@ function App() {
         
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='mr-auto'>
-              <Nav.Link as={Link} to="/">Home</Nav.Link>
+              <Nav.Link as={Link} to="/"> Home </Nav.Link>
               <NavDropdown title='Cadastros' id='basic-nav-dropdown'>
                 <NavDropdown.Item as={Link} to='/usuario'> Usuario </NavDropdown.Item>
                 <NavDropdown.Item as={Link} to='/video'> Video </NavDropdown.Item>
@@ -27,6 +28,7 @@ function App() {
                 <NavDropdown.Item as={Link} to='/alternativa'> Alternativa </NavDropdown.Item>
                 <NavDropdown.Item as={Link} to='/resposta'> Resposta </NavDropdown.Item>
               </NavDropdown>
+              
             </Nav>
           </Navbar.Collapse>
         </Navbar>

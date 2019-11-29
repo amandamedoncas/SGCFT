@@ -1,3 +1,8 @@
+#home{
+  background-color: blue;
+   text-align: center
+}
+
 form {
     width: 70%;
     margin: auto;
@@ -5,7 +10,7 @@ form {
     
   }
   
-  .button-novo {
+  .bt-cadastro {
     float: right;
     width: 200px;
     margin-bottom: 20px;

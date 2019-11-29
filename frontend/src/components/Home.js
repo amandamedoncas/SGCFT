@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import '../components/css/Stilo.css';
 
 export class Home extends Component {
   render() {
     return (     
-        <div>Bem-vindo ao gerenciador de Treinamentos</div>
+        <div id="home">
+
+        </div>
     );
   }
 }

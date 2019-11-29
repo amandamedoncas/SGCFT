@@ -217,7 +217,7 @@ export class Modulo extends Component {
       render() {
         return (
           <div>
-            <Button variant="primary" className="button-novo" onClick={this.abrirModalInserir}>Cadastro</Button>
+            <Button variant="primary" className="bt-cadastro" onClick={this.abrirModalInserir}>Cadastro</Button>
             {this.renderTabela()}
             {this.renderModal()}
           </div>
