@@ -1,40 +1,39 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 
-export class Videos extends Component {
+export class Pergunta extends Component {
     constructor(props) {
         super(props);
       
         this.state = {
          id:0,
-         idModulo: '',
-         titulo:'',
+         idModulo: 0,
+         texto:'',
         
         };
       
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleIdModuloChange = this.handleIdModuloChange.bind(this);
-        this.handleTituloChange = this.handleTituloChange.bind(this);
+        this.handleTituloChange = this.handleTextoChange.bind(this);
         
       }
       
       handleSubmit(e) {
-        alert('Um video foi enviado: ' + JSON.stringify(this.state));
+        alert('Um pergunta foi enviado: ' + JSON.stringify(this.state));
         this.setState({
             id:0,
-            idModulo: '',
-            titulo:'',
+            idModulo: 0,
+            texto:'',
         });
         e.preventDefault();
       }
-      
-      handleIdModuloChange(e) {
+
+      handleTituloChange(e) {
         this.setState({
-          idModulo: e.target.value
+          titulo: e.target.value
         });
       }
-      
-      handleTituloChange(e) {
+            
+      handleIdModuloChange(e) {
         this.setState({
           titulo: e.target.value
         });
@@ -43,25 +42,25 @@ export class Videos extends Component {
       
 
       // GET (todas)
-    buscarVideos() {
-    fetch('/api/Videos')
+    buscarPerguntas() {
+    fetch('/api/Perguntas')
       .then(response => response.json())
-      .then(data => this.setState({ Video: data }));
+      .then(data => this.setState({ Pergunta: data }));
   }
   
   // GET (por ID)
-  buscarVideo(id) {
-    fetch('/api/Videos/' + id)
+  buscarPergunta(id) {
+    fetch('/api/Perguntas/' + id)
       .then(response => response.json())
-      .then(data => this.setState({ Videos: data }));
+      .then(data => this.setState({ Perguntas: data }));
   }
   
   // POST
-  inserirVideo(video) {
-    fetch('/api/Videos', {
+  inserirPergunta(pergunta) {
+    fetch('/api/Perguntas', {
       method: 'post',
       headers: {'Content-Type':'application/json'},
-      body: JSON.stringify(video)
+      body: JSON.stringify(pergunta)
     }).then((resposta) => {
       if (resposta.ok) {
         /* Tratamento depois de completar o POST com status 200 OK */;
@@ -72,11 +71,11 @@ export class Videos extends Component {
   }
   
   // PUT
-  atualizarVideo(video) {
-    fetch('/api/Videos/' + video.id, {
+  atualizarPergunta(pergunta) {
+    fetch('/api/Perguntas/' + pergunta.id, {
       method: 'put',
       headers: {'Content-Type':'application/json'},
-      body: JSON.stringify(video)
+      body: JSON.stringify(pergunta)
     }).then((resposta) => {
       if (resposta.ok) {
         /* Tratamento depois de completar o PUT com status 200 OK */;
@@ -87,8 +86,8 @@ export class Videos extends Component {
   }
   
   // DELETE
-  excluirVideo(id) {
-    fetch('/api/Videos/' + id, {
+  excluirPergunta(id) {
+    fetch('/api/Perguntas/' + id, {
       method: 'delete'
     }).then((resposta) => {
       if (resposta.ok) {
@@ -105,12 +104,12 @@ export class Videos extends Component {
     return (
         <Form onSubmit={this.handleSubmit}>
         <Form.Group>
-            <Form.Label>Modulo</Form.Label>
-            <Form.Control type='text' placeholder='Modulo do video' value={this.state.idModulo} onChange={this.handleIdModuloChange} />
+            <Form.Label>Texto</Form.Label>
+            <Form.Control type='text' placeholder='Texto<' value={this.state.texto} onChange={this.handleTextoChange} />
         </Form.Group>
         <Form.Group>
-            <Form.Label>Titulo</Form.Label>
-            <Form.Control type='text' placeholder='Titulo<' value={this.state.titulo} onChange={this.handleTituloChange} />
+            <Form.Label>Modulo</Form.Label>
+            <Form.Control type='text' placeholder='Texto<' value={this.state.idModulo} onChange={this.handleIdModuloChange} />
         </Form.Group>
         <Button variant='primary' type='submit'>
             Inserir

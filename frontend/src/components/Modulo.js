@@ -1,76 +1,67 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 
-export class Respostas extends Component {
+export class Modulo extends Component {
     constructor(props) {
         super(props);
       
         this.state = {
          id:0,
-         idUsuario: '',
-         idPergunta: '',
-         solucao:'',
+         idTreinamento: '',
+         titulo:'',
         
         };
       
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleIdUsuarioChange = this.handleIdUsuarioChange.bind(this);
-        this.handleIdPerguntaChange = this.handleIdPerguntaChange.bind(this);
-        this.handleSolucaohange = this.handleSolucaoChange.bind(this);
+        this.handleIdTreinamentoChange = this.handleIdTreinamentoChange.bind(this);
+        this.handleTituloChange = this.handleTituloChange.bind(this);
         
       }
       
       handleSubmit(e) {
-        alert('Um resposta foi enviado: ' + JSON.stringify(this.state));
+        alert('Um modulo foi enviado: ' + JSON.stringify(this.state));
         this.setState({
             id:0,
-            idUsuario: '',
-            idPergunta: '',
-            solucao:'',
+            idTreinamento: '',
+            titulo:'',
         });
         e.preventDefault();
       }
       
-      handleIdUsuarioChange(e) {
+      handleIdTreinamentoChange(e) {
         this.setState({
-          idUsuario: e.target.value
-        });
-      }
-
-      handleIdPerguntaChange(e) {
-        this.setState({
-          idPergunta: e.target.value
+          idTreinamento: e.target.value
         });
       }
       
-      handleSolucaoChange(e) {
+      handleTituloChange(e) {
         this.setState({
-          solucao: e.target.value
+          titulo: e.target.value
         });
       }
       
       
 
       // GET (todas)
-    buscarRespostas() {
-    fetch('/api/Respostas')
+    buscarModulos() {
+    fetch('/api/Modulos')
       .then(response => response.json())
-      .then(data => this.setState({ Resposta: data }));
+      .then(data => this.setState({ Modulo: data }));
   }
   
   // GET (por ID)
-  buscarResposta(id) {
-    fetch('/api/Respostas/' + id)
+  buscarModulo(id) {
+    fetch('/api/Modulos/' + id)
       .then(response => response.json())
-      .then(data => this.setState({ Respostas: data }));
+      .then(data => this.setState({ Modulos: data }));
   }
   
   // POST
-  inserirResposta(resposta) {
-    fetch('/api/Respostas', {
+  inserirModulo(modulo) {
+    fetch('/api/Modulos', {
       method: 'post',
       headers: {'Content-Type':'application/json'},
-      body: JSON.stringify(resposta)
+      body: JSON.stringify(modulo)
     }).then((resposta) => {
       if (resposta.ok) {
         /* Tratamento depois de completar o POST com status 200 OK */;
@@ -81,11 +72,11 @@ export class Respostas extends Component {
   }
   
   // PUT
-  atualizarResposta(resposta) {
-    fetch('/api/Respostas/' + resposta.id, {
+  atualizarModulo(modulo) {
+    fetch('/api/Modulos/' + modulo.id, {
       method: 'put',
       headers: {'Content-Type':'application/json'},
-      body: JSON.stringify(resposta)
+      body: JSON.stringify(modulo)
     }).then((resposta) => {
       if (resposta.ok) {
         /* Tratamento depois de completar o PUT com status 200 OK */;
@@ -96,8 +87,8 @@ export class Respostas extends Component {
   }
   
   // DELETE
-  excluirResposta(id) {
-    fetch('/api/Respostas/' + id, {
+  excluirModulo(id) {
+    fetch('/api/Modulos/' + id, {
       method: 'delete'
     }).then((resposta) => {
       if (resposta.ok) {
@@ -114,16 +105,12 @@ export class Respostas extends Component {
     return (
         <Form onSubmit={this.handleSubmit}>
         <Form.Group>
-            <Form.Label>Autor</Form.Label>
-            <Form.Control type='text' placeholder='Autor da resposta' value={this.state.idUsuario} onChange={this.handleIdUsuarioChange} />
-        </Form.Group>
-        <Form.Group>
-            <Form.Label>Pergunta</Form.Label>
-            <Form.Control type='text' placeholder='Pergunta da resposta' value={this.state.idPergunta} onChange={this.handleIdPerguntaChange} />
+            <Form.Label>Treinamento</Form.Label>
+            <Form.Control type='text' placeholder='Treinamento do modulo' value={this.state.idTreinamento} onChange={this.handleIdTreinamentoChange} />
         </Form.Group>
         <Form.Group>
             <Form.Label>Titulo</Form.Label>
-            <Form.Control type='text' placeholder='Titulo<' value={this.state.solucao} onChange={this.handleSolucaoChange} />
+            <Form.Control type='text' placeholder='Titulo<' value={this.state.titulo} onChange={this.handleTituloChange} />
         </Form.Group>
         <Button variant='primary' type='submit'>
             Inserir

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, Form, Modal, Table } from 'react-bootstrap';
 import '../components/css/Stilo.css';
 
-export class Usuarios extends Component {
+export class Usuario extends Component {
   constructor(props) {
     super(props);
 

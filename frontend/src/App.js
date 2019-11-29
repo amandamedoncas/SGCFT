@@ -2,14 +2,13 @@ import React from 'react';
 import { Container, Navbar, Nav, NavDropdown} from 'react-bootstrap';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import { Home } from './components/Home';
-import { Tarefas } from './components/Tarefas';
-import { Alternativas } from './components/Alternativas';
-import { Usuarios } from './components/Usuarios';
-import { Treinamentos } from './components/Treinamentos';
-import { Modulos } from './components/Modulos';
-import { Videos } from './components/Videos';
-import { Perguntas } from './components/Perguntas';
-import { Respostas } from './components/Respostas';
+import { Alternativa } from './components/Alternativa';
+import { Usuario } from './components/Usuario';
+import { Treinamento } from './components/Treinamento';
+import { Modulo } from './components/Modulo';
+import { Video } from './components/Video';
+import { Pergunta } from './components/Pergunta';
+import { Resposta } from './components/Resposta';
 function App() {
   return (
     <Container className="">
@@ -20,28 +19,26 @@ function App() {
             <Nav className='mr-auto'>
               <Nav.Link as={Link} to="/">Home</Nav.Link>
               <NavDropdown title='Cadastros' id='basic-nav-dropdown'>
-                <NavDropdown.Item as={Link} to='/tarefas'>Tarefas</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to='/usuarios'>Usuarios</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to='/videos'>Videos</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to='/treinamentos'>Treinamento</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to='/modulos'>Modulos</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to='/perguntas'>Perguntas</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to='/alternativas'>Alternativas</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to='/respostas'>Respostas</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to='/usuario'> Usuario </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to='/video'> Video </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to='/treinamento'> Treinamento </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to='/modulo'> Modulo </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to='/pergunta'> Pergunta </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to='/alternativa'> Alternativa </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to='/resposta'> Resposta </NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
         <Switch>
           <Route path="/" exact={true} component={Home} />
-          <Route path="/tarefas" component={Tarefas} />
-          <Route path="/alternativas" component={Alternativas} />
-          <Route path="/usuarios" component={Usuarios} />
-          <Route path="/treinamentos" component={Treinamentos} />
-          <Route path="/modulos" component={Modulos} />
-          <Route path="/videos" component={Videos} />
-          <Route path="/perguntas" component={Perguntas} />
-          <Route path="/respostas" component={Respostas} />
+          <Route path="/alternativa" component={Alternativa} />
+          <Route path="/usuario" component={Usuario} />
+          <Route path="/treinamento" component={Treinamento} />
+          <Route path="/modulo" component={Modulo} />
+          <Route path="/video" component={Video} />
+          <Route path="/pergunta" component={Pergunta} />
+          <Route path="/resposta" component={Resposta} />
         </Switch>
       </BrowserRouter>
 
