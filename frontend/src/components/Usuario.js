@@ -194,11 +194,11 @@ export class Usuario extends Component {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>CPF</th>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Senha</th>
-            <th>Opções</th>
+            <th> CPF </th>
+            <th> Nome </th>
+            <th> Email </th>
+            <th> Senha </th>
+            <th> Opções </th>
           </tr>
         </thead>
         <tbody>
