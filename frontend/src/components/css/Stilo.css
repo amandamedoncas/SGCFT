@@ -4,21 +4,34 @@
 }
 
 form {
-    width: 70%;
+   
+    color: powderblue;
     margin: auto;
     padding: 10px;
     
   }
   
   .bt-cadastro {
-    float: right;
+
+    margin-left: 45%;
     width: 200px;
     margin-bottom: 20px;
+    margin-top: 10px;
   }
   
+  .bt-conf {
+    background-color:green;
+  }
+
+  .bt-can {
+    background-color:red;
+  }
 
   table{
-    background-color: grey;
-    border-style: solid;
+    background-color: paleturquoise;
+    border-style: none;
     border-width: 5px;
+    text-align: center;
+    font-style: inherit;
+    
   }

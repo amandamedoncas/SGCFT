@@ -10,6 +10,7 @@ import { Modulo } from './components/Modulo';
 import { Video } from './components/Video';
 import { Pergunta } from './components/Pergunta';
 import { Resposta } from './components/Resposta';
+import './components/css/Stilo.css';
 function App() {
   return (
     <Container className="">

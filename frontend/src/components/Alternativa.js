@@ -218,10 +218,10 @@ export class Alternativa extends Component {
               </Form>
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={this.cancelar}>
+              <Button className="bt-can" variant="secondary" onClick={this.cancelar}>
                 Cancelar
               </Button>
-              <Button variant="primary" form="modalForm" type="submit">
+              <Button className="bt-conf" variant="primary" form="modalForm" type="submit">
                 Confirmar
               </Button>
             </Modal.Footer>

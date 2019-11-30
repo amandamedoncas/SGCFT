@@ -215,7 +215,7 @@ export class Usuario extends Component {
           <Modal.Title>Cadastro</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form id="modalForm" onSubmit={this.submit}>
+          <Form id="FormCadastro" onSubmit={this.submit}>
             <Form.Group>
               <Form.Label>CPF</Form.Label>
               <Form.Control type='text' placeholder='Informe CPF' value={this.state.cpf} onChange={this.handleCPFChange} />
@@ -235,10 +235,10 @@ export class Usuario extends Component {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={this.cancelar}>
+          <Button className="bt-can" variant="secondary" onClick={this.cancelar}>
             Cancelar
           </Button>
-          <Button variant="primary" form="modalForm" type="submit">
+          <Button className="bt-con" variant="primary" form="modalForm" type="submit">
             Confirmar
           </Button>
         </Modal.Footer>
