@@ -55,12 +55,12 @@ export class Usuario extends Component {
       method: 'post',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify(usuario)
-    }).then((resposta) => {
-      if (resposta.ok) {
+    }).then((response) => {
+      if (response.ok) {
         this.buscarUsuarios();
         this.cancelar();
       } else {
-        alert(JSON.stringify(resposta));
+        alert(JSON.stringify(response));
       }
     });
   }
@@ -70,12 +70,12 @@ export class Usuario extends Component {
       method: 'put',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify(usuario)
-    }).then((resposta) => {
-      if (resposta.ok) {
+    }).then((response) => {
+      if (response.ok) {
         this.buscarUsuarios();
         this.cancelar();
       } else {
-        alert(JSON.stringify(resposta));
+        alert(JSON.stringify(response));
       }
     });
   }
@@ -84,12 +84,12 @@ export class Usuario extends Component {
     console.log(id);
     fetch('/api/Usuario/' + id, {
       method: 'delete'
-    }).then((resposta) => {
-      if (resposta.ok) {
+    }).then((response) => {
+      if (response.ok) {
         this.buscarUsuarios();
         this.cancelar();
       } else {
-        alert(JSON.stringify(resposta));
+        alert(JSON.stringify(response));
       }
     });
   }
@@ -112,28 +112,28 @@ export class Usuario extends Component {
     }
   }
 
-  handleCPFChange(e) {
+  handleCPFChange(event) {
     this.setState({
-      cpf: e.target.value
+      cpf: event.target.value
     });
   }
 
-  handleNomeChange(e) {
+  handleNomeChange(event) {
     this.setState({
-      nome: e.target.value
+      nome: event.target.value
     });
   }
 
 
-  handleEmailChange(e) {
+  handleEmailChange(event) {
     this.setState({
-      email: e.target.value
+      email: event.target.value
     });
   }
 
-  handleSenhaChange(e) {
+  handleSenhaChange(event) {
     this.setState({
-      senha: e.target.value
+      senha: event.target.value
     });
   }
 
@@ -215,7 +215,7 @@ export class Usuario extends Component {
           <Modal.Title>Cadastro</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form id="FormCadastro" onSubmit={this.submit}>
+          <Form id="modalForm" onSubmit={this.submit}>
             <Form.Group>
               <Form.Label>CPF</Form.Label>
               <Form.Control type='text' placeholder='Informe CPF' value={this.state.cpf} onChange={this.handleCPFChange} />
